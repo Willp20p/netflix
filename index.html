@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Netflix Personal</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      background: #111;
+    }
+    .video-player {
+      width: 100%;
+      height: 60vh;
+      background: black;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      padding: 20px;
+      background: #111;
+    }
+    .thumbnail {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .thumbnail img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .thumbnail:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+<header>🎬 Mi Netflix Personal</header>
+
+<div class="video-player">
+  <video id="mainVideo" autoplay muted loop playsinline>
+    <source src="videos/video1.mp4" type="video/mp4">
+    Tu navegador no soporta video.
+  </video>
+</div>
+
+<div class="gallery">
+  <div class="thumbnail" onclick="changeVideo('videos/video1.mp4')">
+    <img src="thumbs/thumb1.jpg" alt="Video 1">
+  </div>
+  <div class="thumbnail" onclick="changeVideo('videos/video2.mp4')">
+    <img src="thumbs/thumb2.jpg" alt="Video 2">
+  </div>
+  <div class="thumbnail" onclick="changeVideo('videos/video3.mp4')">
+    <img src="thumbs/thumb3.jpg" alt="Video 3">
+  </div>
+</div>
+
+<script>
+  function changeVideo(src) {
+    const video = document.getElementById("mainVideo");
+    video.src = src;
+    video.play();
+  }
+</script>
+
+</body>
+</html>
